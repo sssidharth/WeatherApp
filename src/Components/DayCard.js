@@ -1,6 +1,6 @@
 import React from 'react';
 import moment from 'moment';
-import {Card,CardBody,CardTitle} from 'reactstrap';
+import {Card,CardBody} from 'reactstrap';
 
 const DayCard = ({ reading }) => {
   let newDate = new Date();

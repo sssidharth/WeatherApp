@@ -10,8 +10,8 @@ const ForeCastGraph = ({weather})=>{
      const heading = weather?.data? "Weather Graph":"";
      const [options, setOptions] = useState([])
      const [type, setType] = useState({
-         range : "hourly",
-         units : "far"
+         range : "",
+         units : ""
      });
      
     useEffect(()=>{

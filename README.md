@@ -1,70 +1,52 @@
+# Weather App 
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# Implementation
 
-In the project directory, you can run:
+- I have implemented this application majory using hooks. As I have not worked with hooks much before and majorly worked with
+  class components, it was a good learning exercise for me.
 
-### `npm start`
+- Also I wanted to explore the capabilities of hooks I decided to use them instead of Redux.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Used CanvasJs class to implement the graph. The library seemed simple enough to use and had multiple easy to use configurations.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Although the requirement was to display the weahter by capturing the current location but I couldn't procure an Api key from
+  Google Geolocation which would have returned coordinates. Instead I have used "Geocoding Api" from OpenWeatherMap. The response from this Api generates the Latitude and Longitude of the searched place and these are then passed on as parameters to get the weather data from OpenWeatherMap Api "one-call". The goal was to demonstrate how Coordinates can be passed on.
 
-### `npm test`
+- The app will not scale to a mobile device currently.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Instead of routing, I have used Modal to display a Login popup and hence have a single Login button.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# libraries used 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  # Side Bar
+    
+    Used react-pro-sidebar to create the left section which displays thr current temprature and the login button.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    url= `https://www.npmjs.com/package/react-pro-sidebar`
 
-### `npm run eject`
+  # Graph 
+    
+    CanvasJS classes to implement the graph
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+    url= `https://canvasjs.com/react-charts/`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  # Temprature Cards, Login screen
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+    ReactStrap cards
+    ReactStrap Modal
+  
+  # Grid Design, forms, buttons
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+    Grid - react-grid
 
-## Learn More
+    url-`https://www.npmjs.com/package/react-grid`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+    Forms,buttons - react-bootstrap
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+    
