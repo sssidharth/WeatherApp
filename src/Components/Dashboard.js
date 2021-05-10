@@ -17,7 +17,7 @@ function Dashboard() {
       alert("Add values");
     } else {
       const data = await fetch(
-        `http://api.openweathermap.org/geo/1.0/direct?q=${form.city},${form.country}&limit=1&APPID=${APIKEY}`
+        `https://api.openweathermap.org/geo/1.0/direct?q=${form.city},${form.country}&limit=1&APPID=${APIKEY}`
       )
         .then((res) => res.json())
         .then((data) =>  setLocation({data}))     
