@@ -5,6 +5,8 @@ import {Container, Row, Col} from 'react-grid';
 
 function Dashboard() {
   const [location, setLocation] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [click, setClick] = useState(false)
   const [form, setForm] = useState({
     city: "",
     country: "",
@@ -12,6 +14,7 @@ function Dashboard() {
 
   const APIKEY = process.env.REACT_APP_WEATHER_API_KEY;
   async function locationData(e) {
+    setClick(true);
     e.preventDefault();
     if (form.city === "") {
       alert("Add values");
@@ -22,6 +25,7 @@ function Dashboard() {
         .then((res) => res.json())
         .then((data) =>  setLocation({data}))     
       console.log({location});
+      setLoading(true);
     }
   }
 
@@ -41,7 +45,7 @@ function Dashboard() {
       <Container fluid="true">
       <Row>        
       <Col md={4}>
-        <Weather location={location}/>
+        <Weather location={location} loading={loading} click={click}/>
       </Col>              
       <Col md={5} style={{
         height:"80px"

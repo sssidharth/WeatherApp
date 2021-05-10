@@ -4,8 +4,9 @@ import sidebarBg from '../assets/sidebarBg.jpg';
 import {FaUserPlus} from 'react-icons/fa';
 import {Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Input, Button} from 'reactstrap';
 import 'react-pro-sidebar/dist/css/styles.css';
+import {Spinner} from 'react-bootstrap';
 
-const SideMenu = ({weather,location})=>{
+const SideMenu = ({weather,location,loading,click})=>{
     const loc = location?.data?.[0];
     const city = loc? loc.name : null;
     const country = loc? loc.country: null;
@@ -56,7 +57,7 @@ const SideMenu = ({weather,location})=>{
     }
 
     function WeatherCard(){
-      if(loc && weatherData){
+      if(loc && weatherData && loading && click){
         let iconUrl = `https://openweathermap.org/img/wn/${weatherData?.current?.weather[0].icon}@2x.png`
 		return (     
 			<div id="weather-data">
@@ -83,6 +84,13 @@ const SideMenu = ({weather,location})=>{
                    
         </div>
         )  
+      }
+      else if(loading === false && click === true){
+        return(<div>
+          <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+          <br></br><br></br><br></br><Spinner animation="border" color="light"></Spinner><br></br><br></br><br></br><br></br>
+          <br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+        </div>)
       }
       else{
         return(<div>

@@ -77,10 +77,10 @@ const ForeCastGraph = ({weather})=>{
         let selection = e.target.name;
         let value = e.target.value;
     
-        if (selection == "range") {
+        if (selection === "range") {
           setType({ ...type, range: value });
         }
-        if (selection == "units") {
+        if (selection === "units") {
           setType({ ...type, units: value });
         }
      }

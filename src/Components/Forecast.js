@@ -1,8 +1,9 @@
 import React from 'react';
 import DayCard from './DayCard';
 import {Row} from 'react-grid';
+import {Spinner} from 'react-bootstrap';
 
-const ForeCast = ({weather, location}) =>{
+const ForeCast = ({weather, location, loading, click}) =>{
     const loc = location?.data?.[0];
     const city = loc? loc.name : null;
     const weatherData = weather?.data?.daily;
@@ -24,7 +25,8 @@ const ForeCast = ({weather, location}) =>{
         }}>
         <h5 className="display-5">{city}</h5>
           <Row lg="auto" className="justify-content-center">  
-            {formatDayCards()}  
+            {loading === false && click === true?<Spinner animation="border" color="info"></Spinner>:formatDayCards()}
+            
           </Row>
         </div>
     )

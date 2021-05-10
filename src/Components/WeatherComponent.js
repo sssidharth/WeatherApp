@@ -4,7 +4,7 @@ import ForeCast from './Forecast';
 import ForeCastGraph from './ForeCastGraph';
 import {Container, Row, Col} from 'react-grid';
 
-const Weather=({location})=>{
+const Weather=({location, loading, click})=>{
     const loc = location?.data?.[0];
     const latitide = loc? loc.lat : null;
     const longitide = loc? loc.lon : null;
@@ -29,12 +29,12 @@ const Weather=({location})=>{
          cols : "8"
        }}>
        <Col lg={4}>
-       <SideBar weather={weather} location={location}/>
+       <SideBar weather={weather} location={location} loading={loading} click={click}/>
        </Col>
        <Col sm={3}></Col>
        <Col lg={4}>
          <br></br><br></br>      
-       <ForeCast weather={weather} location={location}/>      
+       <ForeCast weather={weather} location={location} loading={loading} click={click}/>      
        <br></br><br></br><br></br><br></br><br></br><br></br>
        <ForeCastGraph weather={weather}/>
        </Col> 

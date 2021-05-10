@@ -1,5 +1,13 @@
 # Weather App 
 
+To run -
+
+- Enter City and country name.
+
+- To get the forecast graph, select units(°C/°F) and range (hourly, Daily).
+
+- Click on login to Enter a user.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
