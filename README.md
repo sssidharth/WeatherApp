@@ -20,6 +20,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 - Instead of routing, I have used Modal to display a Login popup and hence have a single Login button.
 
+- Used inline styling where neccesary.
+
 - Yet to complete the testing part and UI component to display the list of cities.S
 
 

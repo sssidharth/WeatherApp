@@ -48,12 +48,12 @@ const ForeCastGraph = ({weather})=>{
                 theme: "light2",
                 height: 355,
                 axisY: {
-                    suffix: type.units == "far"? "°F":"°C"
+                    suffix: type.units === "far"? "°F":"°C"
                 },
                 data: [{
                     type: "line",
-                    xValueFormatString: type.range == "hourly"?"hh:mm":"ddd, Do",
-                    yValueFormatString: type.units == "far"?"#°F":"#°C",
+                    xValueFormatString: type.range === "hourly"?"hh:mm":"ddd, Do",
+                    yValueFormatString: type.units === "far"?"#°F":"#°C",
                     dataPoints: dataPoints
                 }]
             

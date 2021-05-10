@@ -13,7 +13,7 @@ function Dashboard() {
   const APIKEY = process.env.REACT_APP_WEATHER_API_KEY;
   async function locationData(e) {
     e.preventDefault();
-    if (form.city == "") {
+    if (form.city === "") {
       alert("Add values");
     } else {
       const data = await fetch(
