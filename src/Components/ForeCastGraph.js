@@ -46,7 +46,7 @@ const ForeCastGraph = ({weather})=>{
          }
          setOptions({
                 theme: "light2",
-                height: 355,
+                height: 270,
                 axisY: {
                     suffix: type.units === "far"? "°F":"°C"
                 },

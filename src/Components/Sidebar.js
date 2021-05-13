@@ -1,6 +1,11 @@
 import React, {useState} from 'react';
 import {ProSidebar, Menu, MenuItem, SidebarHeader, SidebarContent, SidebarFooter} from 'react-pro-sidebar';
-import sidebarBg from '../assets/sidebarBg.jpg';
+import rainy from '../assets/sidebarbg2.jpg';
+import clearSky from '../assets/full_sunny.jpg';
+import partiallyCloudy from '../assets/partiallycloudy.jpg';
+import scatteredClouds from '../assets/scatteredClouds.jpg';
+import defaultView from '../assets/haze.jpg';
+import snowy from '../assets/snowy.jpg';
 import {FaUserPlus} from 'react-icons/fa';
 import {Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Input, Button} from 'reactstrap';
 import 'react-pro-sidebar/dist/css/styles.css';
@@ -20,6 +25,22 @@ const SideMenu = ({weather,location,loading,click})=>{
     const [modal, setModal] = useState({
       isModalOpen : false
     });
+    
+    function getSidebarImage(description)
+    {
+       switch(description){
+         case "broken clouds":
+           return (rainy)
+         case "clear sky":
+           return (clearSky)
+         case "scattered clouds":
+           return (scatteredClouds)
+         case "few clouds":
+           return (partiallyCloudy)        
+         default:
+           return (defaultView)      
+       } 
+    }
 
     function toFar(kelvin){
           return(
@@ -79,9 +100,7 @@ const SideMenu = ({weather,location,loading,click})=>{
             <p>Humidity: {weatherData.current.humidity} %</p>
             <p></p>
             <br></br>
-            <br></br>
-            <br></br>
-                   
+                               
         </div>
         )  
       }
@@ -105,7 +124,7 @@ const SideMenu = ({weather,location,loading,click})=>{
       
       <React.Fragment>
        <ProSidebar
-       image={sidebarBg}
+       image={getSidebarImage(weatherData?.current?.weather[0]?.description)}
        >
         <SidebarHeader>
         <div
