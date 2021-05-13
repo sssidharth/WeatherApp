@@ -25,8 +25,7 @@ const ForeCast = ({weather, location, loading, click}) =>{
         }}>
         <h5 className="display-5">{city}</h5>
           <Row lg="auto" className="justify-content-center">  
-            {loading === false && click === true?<Spinner animation="border" color="info"></Spinner>:formatDayCards()}
-            
+            {loading === false && click === true?<Spinner animation="border" color="info"></Spinner>:formatDayCards()}            
           </Row>
         </div>
     )

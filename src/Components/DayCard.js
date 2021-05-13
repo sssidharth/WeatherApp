@@ -20,9 +20,12 @@ const DayCard = ({ reading }) => {
       <Card style={{
           backgroundColor:"white",
           width:"120px",
-          height:"180px"}}>
+          height:"160px"}}>
         <CardBody className="text-center">{moment(newDate).format('ddd, Do')}
-        <img className = "justify-center" src={iconUrl} alt="weather icon"></img>
+        <img style={{
+          width:"70px",
+          height:"70px"}}
+         src={iconUrl} alt="weather icon"></img>
         <p>{Math.round(toFar(reading.temp.min))+"/"+Math.round(toFar(reading.temp.max))} °F</p>
         </CardBody>
         {/* <p className="text-muted">{moment(newDate).format('MMMM Do,h:mm a')}</p> */}
