@@ -2,19 +2,27 @@ import React,{useState, useEffect} from 'react';
 import CanvasJSReact from './canvasjs.react';
 import {Row, Col} from 'react-grid';
 import moment from 'moment';
+import {Spinner} from 'react-bootstrap';
+import {Dimmer, Loader, Image, Segment } from 'semantic-ui-react';
+import {useSelector} from 'react-redux';
 
-const ForeCastGraph = ({weather})=>{
+const ForeCastGraph = ()=>{
+    const weather = useSelector((state) => state.weather);
      let CanvasJSChart = CanvasJSReact.CanvasJSChart;
-     const dailyWeather = weather?.data?.daily;
-     const hourlyWeather = weather?.data?.hourly;
-     const heading = weather?.data? "Weather Graph":"";
+     const dailyWeather = weather?.weather?.daily;
+     const hourlyWeather = weather?.weather?.hourly;
+     const heading = weather?.weather? "Weather Graph":"";
+     const [loading, setLoading] = useState(false)
      const [options, setOptions] = useState([])
      const [type, setType] = useState({
          range : "",
          units : ""
      });
      
-    useEffect(()=>{
+    useEffect(()=>{    
+        const timer = setTimeout(()=>{
+          setLoading(true)
+        },1000)
         let dataPoints = [];
         if(dailyWeather && hourlyWeather){
             if(type.range === "hourly"){
@@ -59,6 +67,10 @@ const ForeCastGraph = ({weather})=>{
             
          })
 
+         return(()=>{
+             setLoading(false);
+         })
+
     },[type])
 
     function toFar(kelvin){
@@ -84,10 +96,11 @@ const ForeCastGraph = ({weather})=>{
           setType({ ...type, units: value });
         }
      }
-
+    
+    
 
      function showComponent(){
-         if(weather?.data){
+         if(weather?.weather && loading === true){
             return(
                 <div>
                 <h5 className="display-5">{heading}</h5>
@@ -152,17 +165,24 @@ const ForeCastGraph = ({weather})=>{
                    </label>
                </form>
                </Col>
-               </Row>  
-               <div>
+               </Row>                 
+               <div>                
                <CanvasJSChart options = {options}
 				/* onRef={ref => this.chart = ref} */
-			/>
+			   />
                </div>
                </div>
             )
          }
-            else{
-                return(<div></div>);
+            else if(weather?.weather && loading === false)
+            {
+                return(<Segment>
+                    <Dimmer active inverted>
+                      <Loader inverted>Loading</Loader>
+                    </Dimmer>
+              
+                    <Image src='https://react.semantic-ui.com/images/wireframe/short-paragraph.png' />
+                  </Segment>);
             }
          }
 

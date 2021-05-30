@@ -10,12 +10,17 @@ import {FaUserPlus} from 'react-icons/fa';
 import {Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Input, Button} from 'reactstrap';
 import 'react-pro-sidebar/dist/css/styles.css';
 import {Spinner} from 'react-bootstrap';
+import {useSelector} from 'react-redux';
 
-const SideMenu = ({weather,location,loading,click})=>{
-    const loc = location?.data?.[0];
+const SideMenu = ()=>{
+    const location = useSelector((state) => state.location);
+    const weather = useSelector((state) => state.weather);
+    const loading = useSelector((state) => state.loading);
+    const click = useSelector((state) => state.click);
+    const loc = location?.location?.[0];
     const city = loc? loc.name : null;
     const country = loc? loc.country: null;
-    const weatherData = weather?.data;
+    const weatherData = weather?.weather;
     const [userData, setUserData] = useState({
       username:"",
       email:"",

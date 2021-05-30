@@ -1,0 +1,6 @@
+export const ActionTypes = {
+    SET_LOCATION : "SET_LOCATION",
+    SET_WEATHER : "SET_WEATHER",
+    SET_CLICK : "SET_CLICK",
+    SET_LOADING: "SET_LOADING"
+}

@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import Weather from './WeatherComponent';
 import {Container, Row, Col} from 'react-grid';
+import { useDispatch, useSelector } from "react-redux";
+import {setLocation, setLoading, setClick} from '../redux/Actions/WeatherActions';
 
 
 function Dashboard() {
-  const [location, setLocation] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [click, setClick] = useState(false)
+  const location = useSelector((state)=>state.location);
+  const dispatch = useDispatch();
   const [form, setForm] = useState({
     city: "",
     country: "",
@@ -14,7 +15,7 @@ function Dashboard() {
 
   const APIKEY = process.env.REACT_APP_WEATHER_API_KEY;
   async function locationData(e) {
-    setClick(true);
+    dispatch(setClick(true));
     e.preventDefault();
     if (form.city === "") {
       alert("Add values");
@@ -23,9 +24,9 @@ function Dashboard() {
         `https://api.openweathermap.org/geo/1.0/direct?q=${form.city},${form.country}&limit=1&APPID=${APIKEY}`
       )
         .then((res) => res.json())
-        .then((data) =>  setLocation({data}))     
-      console.log({location});
-      setLoading(true);
+        .then((data) =>  dispatch(setLocation(data)))     
+      console.log(location);       
+        dispatch(setLoading(true))
     }
   }
 
@@ -45,13 +46,13 @@ function Dashboard() {
       <Container fluid="true">
       <Row>        
       <Col md={4}>
-        <Weather location={location} loading={loading} click={click}/>
+        <Weather/>
       </Col>              
       <Col md={5} style={{
         height:"80px"
       }}>
       <form>
-      <div class="input-group">
+      <div className="input-group">
            <input type="text"
             placeholder="City"
             name="city"
@@ -60,8 +61,8 @@ function Dashboard() {
             placeholder="Country"
             name="country"
             onChange={(e) => handleChange(e)}/>
-            <div class="input-group-append">
-              <button class="btn btn-primary" type="button" onClick={(e) => locationData(e)}>Search</button>
+            <div className="input-group-append">
+              <button className="btn btn-primary" type="button" onClick={(e) => locationData(e)}>Search</button>
             </div>
       </div>    
       </form>      

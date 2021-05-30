@@ -8,10 +8,7 @@ class MainComponent extends Component{
     <div className="col-sm-md-8">
     <Dashboard/>
     </div>   
-</div>
-
-    
-    
+</div>    
         );        
     }
 }

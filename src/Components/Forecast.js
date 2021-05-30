@@ -2,11 +2,16 @@ import React from 'react';
 import DayCard from './DayCard';
 import {Row} from 'react-grid';
 import {Spinner} from 'react-bootstrap';
+import {useSelector} from 'react-redux';
 
-const ForeCast = ({weather, location, loading, click}) =>{
-    const loc = location?.data?.[0];
+const ForeCast = () =>{
+    const location = useSelector((state) => state.location);
+    const weather = useSelector((state) => state.weather);
+    const loading = useSelector((state) => state.loading);
+    const click = useSelector((state) => state.click);
+    const loc = location?.location?.[0];
     const city = loc? loc.name : null;
-    const weatherData = weather?.data?.daily;
+    const weatherData = weather?.weather?.daily;
 
     function formatDayCards(){
         return(
