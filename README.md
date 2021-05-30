@@ -17,7 +17,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - I have implemented this application majory using hooks. As I have not worked with hooks much before and majorly worked with
   class components, it was a good learning exercise for me.
 
-- Also I wanted to explore the capabilities of hooks I decided to use them instead of Redux. I am planning to scale this to redux further.
+- I've also employed Redux with the use of hooks.
 
 - Used CanvasJs class to implement the graph. The library seemed simple enough to use and had multiple easy to use configurations.
 
