@@ -17,20 +17,20 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - I have implemented this application majory using hooks. As I have not worked with hooks much before and majorly worked with
   class components, it was a good learning exercise for me.
 
-- Also I wanted to explore the capabilities of hooks I decided to use them instead of Redux.
+- Also I wanted to explore the capabilities of hooks I decided to use them instead of Redux. I am planning to scale this to redux further.
 
 - Used CanvasJs class to implement the graph. The library seemed simple enough to use and had multiple easy to use configurations.
 
-- Although the requirement was to display the weahter by capturing the current location but I couldn't procure an Api key from
-  Google Geolocation which would have returned coordinates. Instead I have used "Geocoding Api" from OpenWeatherMap. The response from this Api generates the Latitude and Longitude of the searched place and these are then passed on as parameters to get the weather data from OpenWeatherMap Api "one-call". The goal was to demonstrate how Coordinates can be passed on.
+- I have used "Geocoding Api" from OpenWeatherMap. The response from this Api generates the Latitude and Longitude of the searched place and these are then passed on as parameters to get the weather data from OpenWeatherMap Api "one-call". The goal was to demonstrate how Coordinates can be passed on.
+  Google's geolocation api can be used similarly to obtain current location coordinates and the weather.
 
-- The app will not scale to a mobile device currently.
+- The app will not scale to a mobile device currently. Working on the grid design for that.
 
 - Instead of routing, I have used Modal to display a Login popup and hence have a single Login button.
 
 - Used inline styling where neccesary.
 
-- Yet to complete the testing part and UI component to display the list of cities.S
+- Yet to complete the testing part and UI component to display the list of cities.
 
 
 # libraries used 
